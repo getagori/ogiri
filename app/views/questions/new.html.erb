@@ -1,0 +1,5 @@
+<%= form_for @question, method: :post do |f| %>
+  <h1>お題を入力</h1>
+  <p>お題：<%= f.text_field :theme %></p>
+  <input type="submit" value="送信">
+<% end %>

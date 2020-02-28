@@ -1,0 +1,10 @@
+<h1>お題</h1>
+<% if user_signed_in? %>
+  <% @questions.each do |question| %>
+
+    <p><%= question.theme %>：会員No.<%= question.user.id %></p>
+    
+  <% end %>
+<% else %>
+  <p>ログインしてください</p>
+<% end %>
