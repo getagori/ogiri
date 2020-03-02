@@ -1,5 +1,11 @@
-<%= form_for @question, url: question_path(@question), html: { method: :patch } do |f| %>
-<h1>お題を入力</h1>
-<p>お題：<%= f.text_field :theme %></p>
-<button type="submit" class="btn btn-outline-primary">更新</button>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="mx-auto">
+      <%= form_for @question, url: question_path(@question), html: { method: :patch } do |f| %>
+      <h1>お題を入力</h1>
+      <p>お題：<%= f.text_field :theme %></p>
+      <button type="submit" class="btn btn-outline-primary">更新</button>
+      <% end %>
+    </div>
+  </div>
+</div>

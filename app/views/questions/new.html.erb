@@ -1,5 +1,13 @@
-<%= form_for @question, method: :post do |f| %>
-  <h3>お題を入力</h3>
-  <p>お題：<%= f.text_field :theme %></p>
-  <button type="submit" class="btn btn-outline-primary">送信</button>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="mx-auto">
+      <%= form_for @question, method: :post do |f| %>
+      <h3>お題を入力</h3>
+      <p>お題：<%= f.text_field :theme %></p>
+      <button type="submit" class="btn btn-outline-primary">送信</button>
+    <% end %>
+  </div>
+
+</div>
+
+</div>
