@@ -5,18 +5,51 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
-  <% if user_signed_in? %>
-    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-    <%= link_to "トップ", questions_path %>
-    <%= link_to '投稿画面へ', new_question_path %> 
-    <%= link_to 'マイページへ', user_path(current_user.id) %> 
-  <% else %>
-    <%= link_to "ログイン", new_user_session_path, class: 'post' %>
-    <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
-  <% end %>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">大喜利</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link' %>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to "トップ", questions_path, class: 'nav-link' %>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to '投稿画面へ', new_question_path, class: 'nav-link' %>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to 'マイページへ', user_path(current_user.id), class: 'nav-link' %>
+          </li>
+
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "ログイン", new_user_session_path, class: 'nav-link' %>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to "新規登録", new_user_registration_path, class: 'post', class: 'nav-link' %>
+          </li>
+        <% end %>
+
+      </ul>
+    </div>
+
+  </nav>
+
   <body>
     <%= yield %>
   </body>
